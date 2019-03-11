@@ -30,8 +30,8 @@ def turnOnAutoBattle():
 
 
 def doExpDungeon():
-    DungeonIcon = exists("dungeonIcon.png")
-    if DungeonIcon.score < 0.5:
+    DungeonIcon = has("dungeonIcon.png")
+    if DungeonIcon == False:
         return
     click("dungeonIcon.png")
     click("dailyDungeonButton.png")
@@ -45,16 +45,16 @@ def doExpDungeon():
 
 
 def doDiceHunt():
-    DiceIcon = exists("diceHunterIcon.png")
-    if DiceIcon.score < 0.5:
+    DiceIcon = has("diceHunterIcon.png")
+    if DiceIcon == False:
         click("heroIcon.png")
 
     click("diceHunterIcon.png")
     for diceNum in range(5):
         click("normalDiceButton.png")
         sleep(5)
-        nextLevel = exists("confirmGreenButton.png")
-        bossFight = exists("fightButton.png")
+        nextLevel = has("confirmGreenButton.png")
+        bossFight = has("fightButton.png")
         if nextLevel.score > 0.4:
             click("confirmGreenButton.png")
             sleep(1)
@@ -68,8 +68,8 @@ def doDiceHunt():
 
 
 def doExperienceExchange():
-    ExchangeIcon = exists("exchangeIcon.png")
-    if ExchangeIcon.score < 0.5:
+    ExchangeIcon = has("exchangeIcon.png")
+    if ExchangeIcon == False:
         return
     click("exchangeIcon.png")
     click(Pattern("exchangeWithZenBanner.png").similar(0.90))
@@ -93,9 +93,9 @@ def exitSikuli(event):
 
 
 def doJournalRetrieveEssence():
-    JournalIcon = exists("journalIcon.png")
+    JournalIcon = has("journalIcon.png")
 
-    if JournalIcon.score < 0.5:
+    if JournalIcon == False:
         click("heroIcon.png")
 
     click("journalIcon.png")
@@ -104,7 +104,7 @@ def doJournalRetrieveEssence():
 
 
 def doDonateToGuild():
-    guildIcon = exists("guildIcon.png")
+    guildIcon = has("guildIcon.png")
     if guildIcon < 0.5:
         click("heroIcon.png")
     click("guildIcon.png")
