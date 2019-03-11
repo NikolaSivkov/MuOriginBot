@@ -1,39 +1,52 @@
+# pylint: disable=undefined-variable
+Debug.on(3)
+# focus MeMu
+#memu = App("MEmu.exe")
+# memu.focus()
+#print memu
+# exit()
 
-#pylint: disable=undefined-variable
 
 def participateInBC(event):
-    click("bcBanner.png")
-    click("enterButton.png")
+    click("bloodCastleBanner.png")
+    click("enterGreenButton.png")
     sleep(5)
     turnOnAutoBattle()
+    wait("acceptGreenButton.png", 500)
+    click("acceptGreenButton.png")
+
 
 def participateInDS(event):
-    click("bcBanner.png")
-    click("enterButton.png")
+    click("dsBanner.png")
+    click("enterGreenButton.png")
     sleep(5)
     turnOnAutoBattle()
+    wait("DevilSquareBattleWin.png", 600)
+    click("acceptButton.png")
 
 
 def turnOnAutoBattle():
-     click("autoBattleIcon.png")
+    click("autoBattleButton.png")
+
 
 def doExpDungeon():
-    DungeonIcon = exists("doExpDungeon.png")
+    DungeonIcon = exists("dungeonIcon.png")
     if DungeonIcon.score < 0.5:
         return
-    click("doExpDungeon.png")
+    click("dungeonIcon.png")
     click("dailyDungeonButton.png")
     click("expDungeonBanner.png")
     click("enterButton.png")
-    wait("expDungeonRewardBaner.png",120)
+    wait("expDungeonRewardBaner.png", 120)
     click("expDungeonRewardBaner.png")
     click("claimButton.png")
 
+# DiceHunt
 
-#DiceHunt
+
 def doDiceHunt():
     DiceIcon = exists("diceHunterIcon.png")
-    if DiceIcon.score  < 0.5:
+    if DiceIcon.score < 0.5:
         click("heroIcon.png")
 
     click("diceHunterIcon.png")
@@ -42,32 +55,90 @@ def doDiceHunt():
         sleep(5)
         nextLevel = exists("confirmGreenButton.png")
         bossFight = exists("fightButton.png")
-        if nextLevel.score  > 0.4:
+        if nextLevel.score > 0.4:
             click("confirmGreenButton.png")
             sleep(1)
-            
-        if bossFight.score  > 0.4:
+
+        if bossFight.score > 0.4:
             click("fightButton.png")
             sleep(2)
             turnOnAutoBattle()
-            wait("confirmGreenButton.png",120)
+            wait("confirmGreenButton.png", 120)
             click("confirmGreenButton.png")
 
+
 def doExperienceExchange():
-    ExchangeIcon = exists("expExchangeIcon.png")
-    if ExchangeIcon.score  < 0.3:
+    ExchangeIcon = exists("exchangeIcon.png")
+    if ExchangeIcon.score < 0.5:
         return
-    click("expExchangeIcon.png")
-    click("zenExchangeIcon.png")
+    click("exchangeIcon.png")
+    click(Pattern("exchangeWithZenBanner.png").similar(0.90))
     for exchangeNum in range(8):
-        click("exchangeButton.png")
+        click("exchangeGreenButton.png")
     click("closeButton.png")
 
 
+def autoProcessDailyQuest(event):
+    click("autoProcessButton.png")
 
 
-#define Observables
-onAppear("bcBanner.png", participateInBC)
-onAppear("1552049198793.png", participateInDS)
+def claimExp(event):
+    click("claimButtonOrange.png")
+    click("claimX2RadioButton.png")
+    click("claimButton.png")
 
-doExperienceExchange()
+
+def exitSikuli(event):
+    exit(1)
+
+
+def doJournalRetrieveEssence():
+    JournalIcon = exists("journalIcon.png")
+
+    if JournalIcon.score < 0.5:
+        click("heroIcon.png")
+
+    click("journalIcon.png")
+    click("retrieveEssenceButton.png")
+    click("dissasembleButton.png")
+
+
+def doDonateToGuild():
+    guildIcon = exists("guildIcon.png")
+    if guildIcon < 0.5:
+        click("heroIcon.png")
+    click("guildIcon.png")
+    click("GuildDonationButton.png")
+    click("stormStoneIcon.png")
+    for stormStoneIcon in range(20):
+        click("guildDonationButton-2.png")
+    click("earthStoneIcon.png")
+    for earthStoneIcon in range(20):
+        click("guildDonationButton-2.png")
+    click("waveStoneIcon.png")
+    for waveStoneIcon in range(20):
+        click("guildDonationButton-2.png")
+    click("lavaStoneIcon.png")
+    for lightBlueRockNum in range(20):
+        click("guildDonationButton-2.png")
+
+    click("closeButton.png")
+    click("closeButton.png")
+
+
+#onAppear("bcBanner.png", participateInBC)
+#onAppear("dsBanner.png", participateInDS)
+
+#onAppear("claimButtonOrange.png", claimExp)
+#onAppear("autoProcessButton.png", autoProcessDailyQuest)
+#onAppear("exitButton.png", exitSikuli)
+
+#Settings.ObserveScanRate = 1
+
+# observe(300)
+# doExperienceExchange()
+# doDonateToGuild()
+# doDiceHunt()
+# doExpDungeon()
+sleep(30)
+# doExperienceExchange()
