@@ -99,8 +99,13 @@ def doJournalRetrieveEssence():
         click("heroIcon.png")
 
     click("journalIcon.png")
-    click("retrieveEssenceButton.png")
-    click("dissasembleButton.png")
+    click("retrieveEssence.png")
+    click("dissasembleGreenButton.png")
+    if has("confirmGreenButton.png"):
+        click("confirmGreenButton.png")
+
+    click("cancelGreenButton.png")
+    click("closeButton.png")
 
 
 def doDonateToGuild():
