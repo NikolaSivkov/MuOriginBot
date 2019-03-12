@@ -55,11 +55,11 @@ def doDiceHunt():
         sleep(5)
         nextLevel = has("confirmGreenButton.png")
         bossFight = has("fightButton.png")
-        if nextLevel.score > 0.4:
+        if nextLevel:
             click("confirmGreenButton.png")
             sleep(1)
 
-        if bossFight.score > 0.4:
+        if bossFight:
             click("fightButton.png")
             sleep(2)
             turnOnAutoBattle()
@@ -110,7 +110,7 @@ def doJournalRetrieveEssence():
 
 def doDonateToGuild():
     guildIcon = has("guildIcon.png")
-    if guildIcon < 0.5:
+    if guildIcon == False:
         click("heroIcon.png")
     click("guildIcon.png")
     click("GuildDonationButton.png")
