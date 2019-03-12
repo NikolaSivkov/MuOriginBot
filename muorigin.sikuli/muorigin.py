@@ -45,26 +45,27 @@ def doExpDungeon():
 
 
 def doDiceHunt():
-    DiceIcon = has("diceHunterIcon.png")
+    DiceIcon = has("./diceHunterIcon.png")
     if DiceIcon == False:
-        click("heroIcon.png")
+        click("./heroIcon.png")
 
-    click("diceHunterIcon.png")
+    click("./diceHunterIcon.png")
     for diceNum in range(5):
-        click("normalDiceButton.png")
+        click("./normalDiceButton.png")
         sleep(5)
-        nextLevel = has("confirmGreenButton.png")
-        bossFight = has("fightButton.png")
+        nextLevel = has("./diceHuntConfirmGreenButton.png")
+        # bossFight = has("fightButton.png")
         if nextLevel:
-            click("confirmGreenButton.png")
-            sleep(1)
+            click("./diceHuntConfirmGreenButton.png")
+            sleep(3)
 
-        if bossFight:
-            click("fightButton.png")
-            sleep(2)
-            turnOnAutoBattle()
-            wait("confirmGreenButton.png", 120)
-            click("confirmGreenButton.png")
+        # if bossFight:
+        #     click("fightButton.png")
+        #     sleep(2)
+        #     turnOnAutoBattle()
+        #     wait("confirmGreenButton.png", 120)
+        #     click("confirmGreenButton.png")
+    click("./closeButton.png")
 
 
 def doExperienceExchange():
