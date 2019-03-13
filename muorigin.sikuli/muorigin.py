@@ -109,6 +109,8 @@ def doJournalRetrieveEssence():
 
     click("journalIcon.png")
     click("retrieveEssence.png")
+    # the loading of essence takes about 3 seconds, if prematurely clicked it only retrieves however much essence is loaded
+    sleep(3)
     click("dissasembleGreenButton.png")
     if has("confirmGreenButton.png"):
         click("confirmGreenButton.png")
