@@ -32,31 +32,39 @@ def turnOnAutoBattle():
 def doExpDungeon():
     DungeonIcon = has("dungeonIcon.png")
     if DungeonIcon == False:
-        return
+        click("heroIcon.png")
+        sleep(1)
+        DungeonIcon = has("dungeonIcon.png")
+        if DungeonIcon == False:
+            return
+
     click("dungeonIcon.png")
-    click("dailyDungeonButton.png")
+    click("DallyDungeon.png")
     click("expDungeonBanner.png")
-    click("enterButton.png")
-    wait("expDungeonRewardBaner.png", 120)
-    click("expDungeonRewardBaner.png")
-    click("claimButton.png")
+    click("enterGreenButton.png")
+    wait("./expDungeonGreyRewardBanner.png", 120)
+    click("./expDungeonGreyRewardBanner.png")
+    sleep(1)
+    click("./expDungeonClaimButton.png")
+    click("./quitButton.png")
+    sleep(5)
 
 # DiceHunt
 
 
 def doDiceHunt():
-    DiceIcon = has("./diceHunterIcon.png")
+    DiceIcon = has("diceHunterIcon.png")
     if DiceIcon == False:
-        click("./heroIcon.png")
+        click("heroIcon.png")
 
-    click("./diceHunterIcon.png")
+    click("diceHunterIcon.png")
     for diceNum in range(5):
-        click("./normalDiceButton.png")
+        click("normalDiceButton.png")
         sleep(5)
-        nextLevel = has("./diceHuntConfirmGreenButton.png")
+        nextLevel = has("diceHuntConfirmGreenButton.png")
         # bossFight = has("fightButton.png")
         if nextLevel:
-            click("./diceHuntConfirmGreenButton.png")
+            click("diceHuntConfirmGreenButton.png")
             sleep(3)
 
         # if bossFight:
