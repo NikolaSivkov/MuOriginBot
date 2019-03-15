@@ -56,6 +56,7 @@ def doDiceHunt():
     DiceIcon = has("diceHunterIcon.png")
     if DiceIcon == False:
         click("heroIcon.png")
+        sleep(1)
 
     click("diceHunterIcon.png")
     for diceNum in range(5):
@@ -106,6 +107,7 @@ def doJournalRetrieveEssence():
 
     if JournalIcon == False:
         click("heroIcon.png")
+        sleep(1)
 
     click("journalIcon.png")
     click("retrieveEssence.png")
@@ -123,6 +125,7 @@ def doDonateToGuild():
     guildIcon = has("guildIcon.png")
     if guildIcon == False:
         click("heroIcon.png")
+        sleep(1)
     click("guildIcon.png")
     click("GuildDonationButton.png")
     click("stormStoneIcon.png")
