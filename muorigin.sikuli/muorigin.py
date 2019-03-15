@@ -42,11 +42,11 @@ def doExpDungeon():
     click("DallyDungeon.png")
     click("expDungeonBanner.png")
     click("enterGreenButton.png")
-    wait("./expDungeonGreyRewardBanner.png", 120)
-    click("./expDungeonGreyRewardBanner.png")
+    wait("expDungeonGreyRewardBanner.png", 120)
+    click("expDungeonGreyRewardBanner.png")
     sleep(1)
-    click("./expDungeonClaimButton.png")
-    click("./quitButton.png")
+    click("expDungeonClaimButton.png")
+    click("quitButton.png")
     sleep(5)
 
 # DiceHunt
@@ -73,7 +73,7 @@ def doDiceHunt():
         #     turnOnAutoBattle()
         #     wait("confirmGreenButton.png", 120)
         #     click("confirmGreenButton.png")
-    click("./closeButton.png")
+    click("closeButton.png")
 
 
 def doExperienceExchange():
