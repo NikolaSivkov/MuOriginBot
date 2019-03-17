@@ -93,9 +93,9 @@ def autoProcessDailyQuest(event):
 
 
 def claimExp(event):
-    click("claimButtonOrange.png")
-    click("claimX2RadioButton.png")
-    click("claimButton.png")
+    click("claimOrangeButton.png")
+    click("claimX2Button.png")
+    click("claimGreenButtonCentered.png")
 
 
 def exitSikuli(event):
