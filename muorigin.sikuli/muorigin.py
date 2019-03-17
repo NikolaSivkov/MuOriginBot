@@ -148,8 +148,17 @@ def doDonateToGuild():
     click("closeButton.png")
 
 
-#onAppear("bcBanner.png", participateInBC)
-#onAppear("dsBanner.png", participateInDS)
+def doAchievement():
+    achievementIcon = has("achievementIcon.png")
+    if achievementIcon == False:
+        click("heroIcon.png")
+        sleep(1)
+    click("achievementIcon.png")
+    click("achievementRuneTabButton.png")
+    for enhanceGreenButton in range(5):
+        click("enhanceGreenButton.png")
+    clic("closeButton.png")
+    sleep(1)
 
 #onAppear("claimButtonOrange.png", claimExp)
 #onAppear("autoProcessButton.png", autoProcessDailyQuest)
