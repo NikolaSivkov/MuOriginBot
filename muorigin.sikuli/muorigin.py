@@ -161,6 +161,15 @@ def doAchievement():
     sleep(1)
 
 #onAppear("claimButtonOrange.png", claimExp)
+def doTasks():
+    taskIcon = has("taskIcon.png")
+    if taskIcon == False:
+        return
+    click("taskIcon.png")
+    click("incompleteTab.png")
+    click("zenAllButton.png")
+    click("ConfirmGreenButton2.png")
+    click("closeButton.png")
 #onAppear("autoProcessButton.png", autoProcessDailyQuest)
 #onAppear("exitButton.png", exitSikuli)
 
