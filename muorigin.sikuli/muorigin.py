@@ -160,7 +160,7 @@ def doAchievement():
     clic("closeButton.png")
     sleep(1)
 
-#onAppear("claimButtonOrange.png", claimExp)
+
 def doTasks():
     taskIcon = has("taskIcon.png")
     if taskIcon == False:
@@ -170,11 +170,18 @@ def doTasks():
     click("zenAllButton.png")
     click("ConfirmGreenButton2.png")
     click("closeButton.png")
+
+# onAppear("bcBanner.png", participateInBC)
+# onAppear("dsBanner.png", participateInDS)
+
+
+onAppear("claimOrangeButton.png", claimExp)
 #onAppear("autoProcessButton.png", autoProcessDailyQuest)
 #onAppear("exitButton.png", exitSikuli)
 
 #Settings.ObserveScanRate = 1
 
+Settings.ObserveScanRate = 1
 # observe(300)
 # doExperienceExchange()
 # doDonateToGuild()
